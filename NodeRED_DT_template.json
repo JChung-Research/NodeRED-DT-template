@@ -1,0 +1,737 @@
+[
+    {
+        "id": "3fdb5f73bc8d4d91",
+        "type": "tab",
+        "label": "DT for JEC Building",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3c69b3e4a6cefcd9",
+        "type": "group",
+        "z": "3fdb5f73bc8d4d91",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3bb1a05e25a1830f",
+            "15b50fde4bf1ee29",
+            "c5a98a4ea3ed7cf3",
+            "98c3f4f5b43611d7",
+            "b4249a39a14fdd35"
+        ],
+        "x": 414,
+        "y": 99,
+        "w": 932,
+        "h": 82
+    },
+    {
+        "id": "4e933469e4ab7613",
+        "type": "group",
+        "z": "3fdb5f73bc8d4d91",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "4cf911e85ed3519e",
+            "389eaa3de425c837",
+            "7565c1835378c86a",
+            "c1e84be0fa5cb4ba",
+            "05b2691c21c5ec56",
+            "7af08fd82fb9043a"
+        ],
+        "x": 414,
+        "y": 279,
+        "w": 992,
+        "h": 122
+    },
+    {
+        "id": "8070d0ba7838ee29",
+        "type": "group",
+        "z": "3fdb5f73bc8d4d91",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7e48e4b3b1ae950e",
+            "16ab254d3e6461f3",
+            "50a931c81ebc4e1f",
+            "38143a0660f76e0a",
+            "84452812d3ba7b2d"
+        ],
+        "x": 414,
+        "y": 479,
+        "w": 972,
+        "h": 82
+    },
+    {
+        "id": "1af94be5fc31d640",
+        "type": "group",
+        "z": "3fdb5f73bc8d4d91",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "10c8f530bf8ef2ab",
+            "d4894e6d60271ba6",
+            "377ed0b4c1637979",
+            "5ba1a05e6e3f3fe0",
+            "c6f48f83d120069e",
+            "489378e97ebc420e",
+            "4b049989edf14fc5",
+            "1cd0071da30b6363"
+        ],
+        "x": 414,
+        "y": 639,
+        "w": 992,
+        "h": 202
+    },
+    {
+        "id": "f7848a51a35069d3",
+        "type": "inject",
+        "z": "3fdb5f73bc8d4d91",
+        "name": "Interval 15 min",
+        "props": [
+            {
+                "p": "time",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "project",
+                "v": "cn39e25vkss3h69meaqg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "900",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "4cf911e85ed3519e",
+                "7e48e4b3b1ae950e"
+            ]
+        ]
+    },
+    {
+        "id": "4cf911e85ed3519e",
+        "type": "http request",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "4e933469e4ab7613",
+        "name": "Request to DT API",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.d21s.com/v2/projects/cn39e25vkss3h69meaqg/devices",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 340,
+        "wires": [
+            [
+                "389eaa3de425c837"
+            ]
+        ]
+    },
+    {
+        "id": "389eaa3de425c837",
+        "type": "json",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "4e933469e4ab7613",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 340,
+        "wires": [
+            [
+                "7565c1835378c86a"
+            ]
+        ]
+    },
+    {
+        "id": "5b15afa7b247b39c",
+        "type": "inject",
+        "z": "3fdb5f73bc8d4d91",
+        "name": "Interval 5 min",
+        "props": [
+            {
+                "p": "time",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "project",
+                "v": "cn39e25vkss3h69meaqg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "x": 300,
+        "y": 700,
+        "wires": [
+            [
+                "10c8f530bf8ef2ab"
+            ]
+        ]
+    },
+    {
+        "id": "7e48e4b3b1ae950e",
+        "type": "http request",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "8070d0ba7838ee29",
+        "name": "Request to DT API",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.d21s.com/v2/projects/cn39e25vkss3h69meaqg/devices",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 520,
+        "wires": [
+            [
+                "16ab254d3e6461f3"
+            ]
+        ]
+    },
+    {
+        "id": "16ab254d3e6461f3",
+        "type": "json",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "8070d0ba7838ee29",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 520,
+        "wires": [
+            [
+                "50a931c81ebc4e1f"
+            ]
+        ]
+    },
+    {
+        "id": "3bb1a05e25a1830f",
+        "type": "json",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "3c69b3e4a6cefcd9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 140,
+        "wires": [
+            [
+                "15b50fde4bf1ee29"
+            ]
+        ]
+    },
+    {
+        "id": "15b50fde4bf1ee29",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "3c69b3e4a6cefcd9",
+        "name": "Select motion sensors",
+        "func": "p = msg.payload;\nselectType = \"motion\"\nselectedSensors = p.devices.filter(i => i.type == selectType);\nmsg.payload = selectedSensors\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 140,
+        "wires": [
+            [
+                "98c3f4f5b43611d7"
+            ]
+        ]
+    },
+    {
+        "id": "894ae3ab583fa4dc",
+        "type": "inject",
+        "z": "3fdb5f73bc8d4d91",
+        "name": "Interval 30 min",
+        "props": [
+            {
+                "p": "time",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "project",
+                "v": "cn39e25vkss3h69meaqg",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1800",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "c5a98a4ea3ed7cf3"
+            ]
+        ]
+    },
+    {
+        "id": "c5a98a4ea3ed7cf3",
+        "type": "http request",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "3c69b3e4a6cefcd9",
+        "name": "Request to DT API",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.d21s.com/v2/projects/cn39e25vkss3h69meaqg/devices",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "3bb1a05e25a1830f"
+            ]
+        ]
+    },
+    {
+        "id": "7565c1835378c86a",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "4e933469e4ab7613",
+        "name": "Select humidity sensors",
+        "func": "p = msg.payload;\nselectType = \"humidity\"\nselectedSensors = p.devices.filter(i => i.type == selectType);\nmsg.payload = selectedSensors\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 340,
+        "wires": [
+            [
+                "c1e84be0fa5cb4ba"
+            ]
+        ]
+    },
+    {
+        "id": "50a931c81ebc4e1f",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "8070d0ba7838ee29",
+        "name": "Select proximity sensors",
+        "func": "p = msg.payload;\nselectType = \"proximity\"\nselectedSensors = p.devices.filter(i => i.type == selectType);\nmsg.payload = selectedSensors\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 520,
+        "wires": [
+            [
+                "38143a0660f76e0a"
+            ]
+        ]
+    },
+    {
+        "id": "10c8f530bf8ef2ab",
+        "type": "http request",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "Request to DT API",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.d21s.com/v2/projects/cn39e25vkss3h69meaqg/devices",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 700,
+        "wires": [
+            [
+                "d4894e6d60271ba6"
+            ]
+        ]
+    },
+    {
+        "id": "d4894e6d60271ba6",
+        "type": "json",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 700,
+        "wires": [
+            [
+                "377ed0b4c1637979"
+            ]
+        ]
+    },
+    {
+        "id": "377ed0b4c1637979",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "Select CO2 sensors",
+        "func": "p = msg.payload;\nselectType = \"co2\"\nselectedSensors = p.devices.filter(i => i.type == selectType);\nmsg.payload = selectedSensors\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 700,
+        "wires": [
+            [
+                "5ba1a05e6e3f3fe0"
+            ]
+        ]
+    },
+    {
+        "id": "98c3f4f5b43611d7",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "3c69b3e4a6cefcd9",
+        "name": "Select a sensor",
+        "func": "p = msg.payload;\nprojectID = msg.project\nselectID = \"cgbugrphfg7g00dfbm7g\"\nsensorName = \"projects/\"+projectID+\"/devices/\"+selectID\nselectedSensor = p.filter(i => i.name == sensorName);\nmsg.payload = selectedSensor\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 140,
+        "wires": [
+            [
+                "b4249a39a14fdd35"
+            ]
+        ]
+    },
+    {
+        "id": "b4249a39a14fdd35",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "3c69b3e4a6cefcd9",
+        "name": "Get motion data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.motion.state;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1e84be0fa5cb4ba",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "4e933469e4ab7613",
+        "name": "Select a sensor",
+        "func": "p = msg.payload;\nprojectID = msg.project\nselectID = \"btouen5pna500081gn8g\"\nsensorName = \"projects/\"+projectID+\"/devices/\"+selectID\nselectedSensor = p.filter(i => i.name == sensorName);\nmsg.payload = selectedSensor\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 340,
+        "wires": [
+            [
+                "05b2691c21c5ec56",
+                "7af08fd82fb9043a"
+            ]
+        ]
+    },
+    {
+        "id": "38143a0660f76e0a",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "8070d0ba7838ee29",
+        "name": "Select a sensor",
+        "func": "p = msg.payload;\nprojectID = msg.project\nselectID = \"c8k9otj94vs0008a8mgg\"\nsensorName = \"projects/\"+projectID+\"/devices/\"+selectID\nselectedSensor = p.filter(i => i.name == sensorName);\nmsg.payload = selectedSensor\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 520,
+        "wires": [
+            [
+                "84452812d3ba7b2d"
+            ]
+        ]
+    },
+    {
+        "id": "5ba1a05e6e3f3fe0",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "Select a sensor",
+        "func": "p = msg.payload;\nprojectID = msg.project\nselectID = \"c9j6p6vck92000emu5fg\"\nsensorName = \"projects/\"+projectID+\"/devices/\"+selectID\nselectedSensor = p.filter(i => i.name == sensorName);\nmsg.payload = selectedSensor\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 700,
+        "wires": [
+            [
+                "c6f48f83d120069e",
+                "489378e97ebc420e",
+                "4b049989edf14fc5",
+                "1cd0071da30b6363"
+            ]
+        ]
+    },
+    {
+        "id": "05b2691c21c5ec56",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "4e933469e4ab7613",
+        "name": "Get humidity data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.humidity.relativeHumidity;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7af08fd82fb9043a",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "4e933469e4ab7613",
+        "name": "Get temperature data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.humidity.temperature;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84452812d3ba7b2d",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "8070d0ba7838ee29",
+        "name": "Get proximity data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.objectPresent.state;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6f48f83d120069e",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "Get humidity data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.humidity.relativeHumidity;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "489378e97ebc420e",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "Get temperature data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.humidity.temperature;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4b049989edf14fc5",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "Get CO2 data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.co2.ppm;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1cd0071da30b6363",
+        "type": "function",
+        "z": "3fdb5f73bc8d4d91",
+        "g": "1af94be5fc31d640",
+        "name": "Get Pressure data",
+        "func": "p = msg.payload;\nmsg.payload = p[0].reported.pressure.pascal;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4381e7081a7d953f",
+        "type": "comment",
+        "z": "3fdb5f73bc8d4d91",
+        "name": "Template to retrieve data from a motion sensor",
+        "info": "",
+        "x": 570,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "c3bf7278215c84f3",
+        "type": "comment",
+        "z": "3fdb5f73bc8d4d91",
+        "name": "Template to retrieve data from a humidity sensor",
+        "info": "",
+        "x": 580,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "dbe2d36201b75612",
+        "type": "comment",
+        "z": "3fdb5f73bc8d4d91",
+        "name": "Template to retrieve data from a proximity sensor",
+        "info": "",
+        "x": 580,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1c558239bf0d46e5",
+        "type": "comment",
+        "z": "3fdb5f73bc8d4d91",
+        "name": "Template to retrieve data from a CO2 sensor",
+        "info": "",
+        "x": 570,
+        "y": 600,
+        "wires": []
+    }
+]
